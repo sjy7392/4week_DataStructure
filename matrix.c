@@ -28,7 +28,7 @@ int main(){
 
     printf("\n행렬 생성 완료\n\n");
 
-    while(num!=7){
+    while(num!=7){ //7번 누를 시 반복문 종료
         printf("************************************************\n");
         printf("1. 행렬 값 랜덤하게 채우기\n");
         printf("2. 행렬 덧셈\n");
@@ -80,7 +80,6 @@ int main(){
             break;
         }
     }
-    //while(num != 7); //7번 누를 시 반복문 종료
     return 1;
 }
 
@@ -102,15 +101,6 @@ void printMatrix(int** matrix, int row, int col){
         }
         printf("\n\n");
     }
-}
-
-//동적할당 해제 함수
-int freeMatrix(int** matrix, int row, int col){
-    for(int i=0; i<row; i++){ //행 번 반복
-        free(matrix[i]); //각 행에 대한 동적할당 메모리 해제
-    }
-    free(matrix); //행렬 전체에 대한 동적할당 메모리 해제
-    return 1;
 }
 
 //행렬 값 채우는 함수
@@ -182,5 +172,14 @@ int multiplyMatrix(int** matrixA, int** matrixB, int row, int col){
         }
     }
     printMatrix(matrixMul, row, row); //matrixMul 출력
+    return 1;
+}
+
+//동적할당 해제 함수
+int freeMatrix(int** matrix, int row, int col){
+    for(int i=0; i<row; i++){ //행 번 반복
+        free(matrix[i]); //각 행에 대한 동적할당 메모리 해제
+    }
+    free(matrix); //행렬 전체에 대한 동적할당 메모리 해제
     return 1;
 }

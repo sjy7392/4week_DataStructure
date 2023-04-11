@@ -161,7 +161,9 @@ int transposeMatrix(int** matrixA, int** matrixT, int row, int col){
 int multiplyMatrix(int** matrixA, int** matrixB, int row, int col){
     int **matrixMul = makeMatrix(row, row);
     int mul=0;
-
+    if (col != row) {
+        printf("Error: 행렬 A의 열 수와 행렬 B의 행 수가 일치하지 않습니다.\n");
+    }
     for(int i=0; i<row; i++){ //행 번 반복
         for(int j=0; j<row; j++){ //행 번 반복
             for(int k=0; k<col; k++){ //중간에 사용되는 공통 인덱스로 사용해 곱셈 수행
